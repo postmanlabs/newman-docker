@@ -1,7 +1,7 @@
 {
 	"id": "4aaffd8a-c1d7-5a22-3bf0-79ecfbe5fbf0",
-	"name": "test issue #233",
-	"description": "Trying to reproduce https://github.com/postmanlabs/newman/issues/233",
+	"name": "Simple HTTPBin Collection",
+	"description": "Single GET",
 	"order": [
 		"f53d5219-6036-31ca-bb44-1cea9c11bd42"
 	],
