@@ -104,15 +104,6 @@
         - "https://docs.docker.com/reference/builder/"
         - "#maintainer"
     -
-      instruction: "EXPOSE"
-      count: 1
-      level: "info"
-      message: "There is no 'EXPOSE' instruction"
-      description: "Without exposed ports how will the service of the container be accessed?"
-      reference_url:
-        - "https://docs.docker.com/reference/builder/"
-        - "#expose"
-    -
       instruction: "ENTRYPOINT"
       count: 1
       level: "info"
@@ -121,21 +112,3 @@
       reference_url:
         - "https://docs.docker.com/reference/builder/"
         - "#entrypoint"
-    -
-      instruction: "CMD"
-      count: 1
-      level: "info"
-      message: "There is no 'CMD' instruction"
-      description: "None"
-      reference_url:
-        - "https://docs.docker.com/reference/builder/"
-        - "#cmd"
-    -
-      instruction: "USER"
-      count: 1
-      level: "warn"
-      message: "No 'USER' instruction"
-      description: "The process(es) within the container may run as root and RUN instructions my be run as root"
-      reference_url:
-        - "https://docs.docker.com/reference/builder/"
-        - "#user"
