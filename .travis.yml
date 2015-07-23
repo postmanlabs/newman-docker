@@ -21,9 +21,12 @@ install:
 before_script:
   - "sekexe/run 'mount -t tmpfs -o size=8g tmpfs /var/lib/docker && docker -d -H tcp://0.0.0.0:2375' &"
   - "while ! docker info &> /dev/null ; do sleep 1; done"
-script:
-  - npm test
-after_success:
+  - "CWD=`pwd`"
   - cd ubuntu_14_04
   - docker build -t newman-docker-ubuntu-14_04 .
+  - cd $CWD
+script:
+  - npm test
+  - docker -v tests/data:/tmp -t newman -c /tmp/collection.json -e /tmp/env.json
+after_success:
   - echo "All done!"
