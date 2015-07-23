@@ -24,6 +24,6 @@ before_script:
   - docker build -t newman-docker-ubuntu-14_04 ./ubuntu_14_04
 script:
   - npm test
-  - docker run -v $PWD/tests/data:/tmp/test_data -t newman-docker -c /tmp/test_data/collection.json -e -e /tmp/test_data/env.json
+  - docker run -v $PWD/tests/data:/tmp/test_data -t newman-docker-ubuntu-14_04 -c /tmp/test_data/collection.json -e -e /tmp/test_data/env.json
 after_success:
   - echo "All done!"
