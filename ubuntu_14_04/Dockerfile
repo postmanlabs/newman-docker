@@ -2,20 +2,21 @@ FROM ubuntu:14.04.2
 
 MAINTAINER Postman Labs <mail@postmanlabs.com>
 
+# Install curl and npm
+RUN apt-get update && apt-get install -y \
+    curl \
+    npm;
+
 # Set node version
 ENV NODE_VERSION 0.10.6
 
 # Set newman version
 ENV NEWMAN_VERSION 1.2.17
 
-# Install npm
-RUN apt-get update && apt-get install -y npm;
-
-# Install node
-RUN npm install -g n && n ${NODE_VERSION};
-
-# Install newman
-RUN npm install -g newman@${NEWMAN_VERSION};
+# Install node and newman
+RUN npm install -g n && \
+    n ${NODE_VERSION} && \
+    npm install -g newman@${NEWMAN_VERSION};
 
 # Set workdir to /etc/newman
 # When running the image, mount the directory containing your collection to this location
