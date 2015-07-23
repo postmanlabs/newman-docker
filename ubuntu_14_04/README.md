@@ -6,4 +6,4 @@
 
  - To run,
 
-``docker -e "COLLECTION_URL=<url of the collection>" -t newman``
+``docker -v </path/to/collections/dir>:/etc/newman -t newman [args to newman]``

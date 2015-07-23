@@ -7,15 +7,13 @@ RUN apt-get update && apt-get install -y \
     git \
     npm;
 
-ENV NODE_VERSION="0.12.6" \
-    NEWMAN_VERSION="1.2.17"
+ENV NODE_VERSION "0.10.6" \
+    NEWMAN_VERSION "1.2.17"
 
 RUN npm install -g n && \
     n ${NODE_VERSION} && \
     npm install -g newman@${NEWMAN_VERSION};
 
-WORKDIR /var/newman-docker
+WORKDIR /etc/newman
 
-VOLUME /tmp:/var/results
-
-CMD newman -u ${COLLECTION_URL} -H /var/results/newman-run.html
+ENTRYPOINT ["newman"]
