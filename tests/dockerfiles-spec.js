@@ -9,7 +9,7 @@ var expect = require('expect.js'),
 
 /* global describe, it */
 describe('Validate Dockerfiles', function () {
-    var versions = ['ubuntu_14_04'],
+    var versions = ['ubuntu_1404'],
         rules = fs.readFileSync(path.join(__dirname, 'dockerfile_rules.yml')),
         validator = new DockerFileValidator(rules); // TODO: Decide how we want to automatically load versions.
 
