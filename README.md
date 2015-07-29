@@ -1,6 +1,6 @@
-# newman-docker <a href="https://travis-ci.org/postmanlabs/newman-docker" target="_blank"><img src="https://travis-ci.org/postmanlabs/newman-docker.svg?branch=develop" /></a> <a href="https://gitter.im/postmanlabs/newman-docker" target="_blank"> <img src="https://badges.gitter.im/Join%20Chat.svg" /></a>
+<img src="https://s3.amazonaws.com/web-artefacts/cartoon-whale-8.gif+(400%C3%97225).png">
 
-<img src="https://s3.amazonaws.com/web-artefacts/newman-128.png">
+# newman-docker <a href="https://travis-ci.org/postmanlabs/newman-docker" target="_blank"><img src="https://travis-ci.org/postmanlabs/newman-docker.svg?branch=develop" /></a> <a href="https://gitter.im/postmanlabs/newman-docker" target="_blank"> <img src="https://badges.gitter.im/Join%20Chat.svg" /></a>
 
 This repository contains docker images for Newman.
 
