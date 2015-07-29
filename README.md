@@ -6,7 +6,7 @@ This repository contains docker images for Newman.
 
 <a href="https://github.com/postmanlabs/newman" target="_blank">Newman</a> is a command-line collection runner for
 <a href="https://getpostman.com" target="_blank">Postman</a>. It allows you to effortlessly run and test a
-<a href="https://www.getpostman.com/docs/collections" targte="_blank">Postman Collections<a/> directly from the
+<a href="https://www.getpostman.com/docs/collections" target="_blank">Postman Collections<a/> directly from the
 command-line. It is built with extensibility in mind so that you can easily integrate it with your continuous
 integration servers and build systems.
 
@@ -31,7 +31,7 @@ Pull the <a href="https://registry.hub.docker.com/u/postman/newman_ubuntu1404/" 
 image</a> from docker hub:
 
 ```terminal
-docker pull postman/newman_ubuntu1404;
+docker pull postman/newman_ubuntu1404
 ```
 
 **Step 2:**
