@@ -1,8 +1,6 @@
-<a href="https://travis-ci.org/postmanlabs/newman-docker" target="_blank"><img align="right" src="https://travis-ci.org/postmanlabs/newman-docker.svg?branch=develop" /></a>
+# newman-docker <a href="https://travis-ci.org/postmanlabs/newman-docker" target="_blank"><img src="https://travis-ci.org/postmanlabs/newman-docker.svg?branch=develop" /></a> <a href="https://gitter.im/postmanlabs/newman-docker" target="_blank"> <img src="https://badges.gitter.im/Join%20Chat.svg" /></a>
 
-# newman-docker
-
-<img src="https://s3.amazonaws.com/web-artefacts/newman-128.png" />
+<img src="https://s3.amazonaws.com/web-artefacts/newman-128.png">
 
 This repository contains docker images for Newman.
 
@@ -26,36 +24,6 @@ popular operating systems</a>. Choose your operating system and follow the instr
 > Ensure you that you have docker installed and running in your system before proceeding with next steps. A quick test
 > to see if docker is installed correctly is to execute the command `docker run hello-world` and it should run without
 > errors.
-
-```terminal
-docker run hello-world
-```
-
-You should get an output like this
-
-```terminal
-Hello from Docker.
-This message shows that your installation appears to be working correctly.
-
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-    (Assuming it was not already locally available.)
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
-
-To try something more ambitious, you can run an Ubuntu container with:
- $ docker run -it ubuntu bash
-
-For more examples and ideas, visit:
- http://docs.docker.com/userguide/
-```
-
-If instead you get any errors, then you need to either install, or fix your installation of docker. Docker has
-extensive <a href="https://docs.docker.com/installation/" target="_blank">installation guidelines for popular
-operating systems</a>
 
 **Step 1:**
 
@@ -90,8 +58,7 @@ git clone https://github.com/postmanlabs/newman-docker.git
 Build the image:
 
 ```terminal
-cd newman-docker/newman_ubuntu1404
-docker build -t newman_ubuntu1404 .
+docker build -t postman/newman_ubuntu1404 docker-newman/newman_ubuntu1404
 ```
 
 **Step 3:**
@@ -110,9 +77,65 @@ directory of your collection files into that location and provide the file refer
 
 
 ```terminal
-docker run -v /etc/collections:/etc/newman -t postman/newman_ubuntu1404:1.2.17 -c PostmanDemoServer.json.postman_collection
+# Mount host collections folder ~/collections, onto /etc/newman on the docker image, so that newman
+# has access to collections
+docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 --collection="PostmanDemoServer.json.postman_collection"
 ```
 
 You are not required to mount a volume if you do not need to save newman report to the host, and your collection is
-available online(unless your collection requires an environment). To know more about mounting volumes, visit
+available online, unless your collection requires an environment(as environments cannot be passed as URLs).
+
+To know more about mounting volumes, visit
 <a href="https://docs.docker.com/userguide/dockervolumes/" target="_blank">docker documentation on shared data volumes</a>.
+
+
+## Examples
+
+Run a local collection, pass an environment to it, and save the HTML report on the host.
+
+```terminal
+docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
+    --collection="PostmanDemoServer.json.postman_collection" \
+    --environment="PostmanBin.postman_environment" \
+    --html="newman-results.html"
+```
+
+Run a remote collection, pass it a local environment, and save JUnit XML test report on the host
+
+```terminal
+docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
+    --url="https://www.getpostman.com/collections/4a287759fe7efe6b0f20" \
+    --environment="PostmanBin.postman_environment" \
+    --testReportFile="newman-report.xml"
+```
+
+ Import a Postman backup file, and save collections, environments, and globals
+ 
+ ```terminal
+docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 --import="Backup.postman_dump" --pretty
+```
+
+Use a script to run a collection and do something, for example deploy the build, if all the tests pass
+
+```bash
+#/bin/bash
+
+# Stop on first error
+set -e;
+
+function onExit {
+    if [ "$?" != "0" ]; then
+        echo "Tests failed";
+        # build failed, don't deploy
+        exit 1;
+    else
+        echo "Tests passed";
+        # deploy build
+    fi
+}
+
+#
+trap onExit EXIT;
+
+docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/4a287759fe7efe6b0f20" --exitCode;
+```
