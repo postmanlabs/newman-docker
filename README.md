@@ -100,7 +100,7 @@ docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
     --html="newman-results.html"
 ```
 
-Run a remote collection, pass it a local environment, and save JUnit XML test report on the host
+<br />Run a remote collection, pass it a local environment, and save JUnit XML test report on the host
 
 ```terminal
 docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
@@ -109,13 +109,13 @@ docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
     --testReportFile="newman-report.xml"
 ```
 
- Import a Postman backup file, and save collections, environments, and globals
+<br />Import a Postman backup file, and save collections, environments, and globals
  
  ```terminal
 docker run -v ~/collections:/etc/postman -t postman/ubuntu_1404 --import="Backup.postman_dump" --pretty
 ```
 
-Use a script to run a collection and do something, for example deploy the build, if all the tests pass
+<br />Use a script to run a collection and do something, for example deploy the build, if all the tests pass
 
 ```bash
 #/bin/bash
