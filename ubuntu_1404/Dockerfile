@@ -1,6 +1,6 @@
 FROM ubuntu:14.04.2
 
-MAINTAINER Postman Labs <mail@postmanlabs.com>
+MAINTAINER Postman Labs <help@getpostman.com>
 
 # Install curl and npm
 RUN apt-get update && apt-get install -y \
