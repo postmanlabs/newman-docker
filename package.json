@@ -1,6 +1,6 @@
 {
   "name": "newman-docker",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "This repository contains the Dockerfiles and tests for the Newman Docker images.",
   "scripts": {
     "test": "mocha tests/*-spec.js"
@@ -23,7 +23,7 @@
   "homepage": "https://github.com/postmanlabs/newman-docker#readme",
   "devDependencies": {
     "dockerfile_lint": "0.0.8",
-    "dockerode": "^2.2.2",
+    "dockerode": "2.2.2",
     "expect.js": "0.3.1",
     "mocha": "2.2.5"
   }
