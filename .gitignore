@@ -34,3 +34,4 @@ pyenv
 vendor/pkg/
 .idea
 node_modules
+npm-debug.log*

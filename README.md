@@ -39,7 +39,7 @@ docker pull postman/newman_ubuntu1404;
 Run newman commands on the image:
 
 ```terminal
-docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/4a287759fe7efe6b0f20"
+docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/df0a40ef41d570c48154"
 ```
 
 ### Build the docker image from this repository
@@ -66,7 +66,7 @@ docker build -t postman/newman_ubuntu1404 docker-newman/newman_ubuntu1404
 Run a collection using the newman image:
 
 ```terminal
-docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/4a287759fe7efe6b0f20"
+docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/df0a40ef41d570c48154"
 ```
 
 
@@ -79,7 +79,7 @@ directory of your collection files into that location and provide the file refer
 ```terminal
 # Mount host collections folder ~/collections, onto /etc/newman on the docker image, so that newman
 # has access to collections
-docker run -v ~/collections:/etc/newman -t postman/ubuntu_1404 --collection="PostmanDemoServer.json.postman_collection"
+docker run -v ~/collections:/etc/newman -t postman/ubuntu_1404 --collection="JSONBlobCoreAPI.json.postman_collection"
 ```
 
 You are not required to mount a volume if you do not need to save newman report to the host, and your collection is
@@ -95,8 +95,8 @@ Run a local collection, pass an environment to it, and save the HTML report on t
 
 ```terminal
 docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
-    --collection="PostmanDemoServer.json.postman_collection" \
-    --environment="PostmanBin.postman_environment" \
+    --collection="JSONBlobCoreAPI.json.postman_collection" \
+    --environment="JSONBlobCoreAPI.postman_environment" \
     --html="newman-results.html"
 ```
 
@@ -104,13 +104,13 @@ docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
 
 ```terminal
 docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
-    --url="https://www.getpostman.com/collections/4a287759fe7efe6b0f20" \
-    --environment="PostmanBin.postman_environment" \
+    --url="https://www.getpostman.com/collections/df0a40ef41d570c48154" \
+    --environment="JSONBlobCoreAPI.postman_environment" \
     --testReportFile="newman-report.xml"
 ```
 
 <br />Import a Postman backup file, and save collections, environments, and globals
- 
+
  ```terminal
 docker run -v ~/collections:/etc/postman -t postman/ubuntu_1404 --import="Backup.postman_dump" --pretty
 ```
@@ -137,5 +137,5 @@ function onExit {
 #
 trap onExit EXIT;
 
-docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/4a287759fe7efe6b0f20" --exitCode;
+docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/df0a40ef41d570c48154" --exitCode;
 ```
