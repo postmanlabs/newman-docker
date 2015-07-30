@@ -24,7 +24,7 @@ before_script:
   - docker build -t newman_ubuntu1404 ./ubuntu_1404
 script:
   - npm test
-  - docker run -v $PWD/tests/data:/etc/newman -t newman_ubuntu1404 -c HTTPBinNewmanTest.json.postman_collection
+  - docker run -v $PWD/tests/data:/etc/newman -t newman_ubuntu1404 -c HTTPBinNewmanTest.json.postman_collection -e HTTPBinNewmanTestEnv.json.postman_environment
   - docker run -t newman_ubuntu1404 -u https://www.getpostman.com/collections/8a0c9bc08f062d12dcda
 after_success:
   - echo "All done!"
