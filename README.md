@@ -66,7 +66,7 @@ docker build -t postman/newman_ubuntu1404 docker-newman/newman_ubuntu1404
 Run a collection using the newman image:
 
 ```terminal
-docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/df0a40ef41d570c48154"
+docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/8a0c9bc08f062d12dcda"
 ```
 
 
@@ -95,8 +95,8 @@ Run a local collection, pass an environment to it, and save the HTML report on t
 
 ```terminal
 docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
-    --collection="JSONBlobCoreAPI.json.postman_collection" \
-    --environment="JSONBlobCoreAPI.postman_environment" \
+    --collection="HTTPBinNewmanTest.json.postman_collection" \
+    --environment="HTTPBinNewmanTestEnv.json.postman_environment" \
     --html="newman-results.html"
 ```
 
@@ -104,8 +104,8 @@ docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
 
 ```terminal
 docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
-    --url="https://www.getpostman.com/collections/df0a40ef41d570c48154" \
-    --environment="JSONBlobCoreAPI.postman_environment" \
+    --url="https://www.getpostman.com/collections/8a0c9bc08f062d12dcda" \
+    --environment="HTTPBinNewmanTestEnv.json.postman_environment" \
     --testReportFile="newman-report.xml"
 ```
 
@@ -137,5 +137,5 @@ function onExit {
 #
 trap onExit EXIT;
 
-docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/df0a40ef41d570c48154" --exitCode;
+docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/8a0c9bc08f062d12dcda" --exitCode;
 ```
