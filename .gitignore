@@ -32,3 +32,6 @@ man/man1
 man/man5
 pyenv
 vendor/pkg/
+.idea
+node_modules
+npm-debug.log*
