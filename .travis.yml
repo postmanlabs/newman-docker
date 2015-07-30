@@ -24,6 +24,6 @@ before_script:
   - docker build -t newman_ubuntu1404 ./ubuntu_1404
 script:
   - npm test
-  - docker run -v $PWD/tests/data:/tmp/test_data -t newman_ubuntu1404 -c /tmp/test_data/collection.json -e -e /tmp/test_data/env.json
+  - docker run -v $PWD/tests/data:/etc/newman -t newman_ubuntu1404 -c JSONBlobCoreAPI.json.postman_collection
 after_success:
   - echo "All done!"
