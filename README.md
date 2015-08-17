@@ -94,7 +94,7 @@ To know more about mounting volumes, visit
 Run a local collection, pass an environment to it, and save the HTML report on the host.
 
 ```terminal
-docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
+docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 \
     --collection="HTTPBinNewmanTest.json.postman_collection" \
     --environment="HTTPBinNewmanTestEnv.json.postman_environment" \
     --html="newman-results.html"
@@ -103,7 +103,7 @@ docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
 <br />Run a remote collection, pass it a local environment, and save JUnit XML test report on the host
 
 ```terminal
-docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
+docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 \
     --url="https://www.getpostman.com/collections/8a0c9bc08f062d12dcda" \
     --environment="HTTPBinNewmanTestEnv.json.postman_environment" \
     --testReportFile="newman-report.xml"
@@ -112,7 +112,7 @@ docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
 <br />Import a Postman backup file, and save collections, environments, and globals
 
  ```terminal
-docker run -v ~/collections:/etc/postman -t postman/ubuntu_1404 --import="Backup.postman_dump" --pretty
+docker run -v ~/collections:/etc/newman -t postman/ubuntu_1404 --import="Backup.postman_dump" --pretty
 ```
 
 <br />Use a script to run a collection and do something, for example deploy the build, if all the tests pass
@@ -140,3 +140,4 @@ docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collec
 ```
 
 [![Analytics](https://ga-beacon.appspot.com/UA-43979731-9/newman-docker/readme)](https://www.getpostman.com)
+
