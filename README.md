@@ -79,7 +79,7 @@ directory of your collection files into that location and provide the file refer
 ```terminal
 # Mount host collections folder ~/collections, onto /etc/newman on the docker image, so that newman
 # has access to collections
-docker run -v ~/collections:/etc/newman -t postman/ubuntu_1404 --collection="JSONBlobCoreAPI.json.postman_collection"
+docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu_1404 --collection="HTTPBinNewmanTestNoEnv.json.postman_collection"
 ```
 
 You are not required to mount a volume if you do not need to save newman report to the host, and your collection is
@@ -120,7 +120,7 @@ docker run -v ~/collections:/etc/newman -t postman/ubuntu_1404 --import="Backup.
 ```bash
 #/bin/bash
 
-# Stop on first error
+# stop on first error
 set -e;
 
 function onExit {
@@ -134,10 +134,10 @@ function onExit {
     fi
 }
 
+# call onExit when the script exits
 trap onExit EXIT;
 
 docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/8a0c9bc08f062d12dcda" --exitCode;
 ```
 
 [![Analytics](https://ga-beacon.appspot.com/UA-43979731-9/newman-docker/readme)](https://www.getpostman.com)
-
