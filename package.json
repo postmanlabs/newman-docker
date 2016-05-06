@@ -1,6 +1,6 @@
 {
   "name": "newman-docker",
-  "version": "1.0.0",
+  "version": "1.3.2",
   "description": "This repository contains the Dockerfiles and tests for the Newman Docker images.",
   "scripts": {
     "test": "mocha tests/*-spec.js"
