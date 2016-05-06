@@ -1,6 +1,6 @@
 <img src="https://s3.amazonaws.com/web-artefacts/cartoon-whale-8.gif+(400%C3%97225).png">
 
-# newman-docker <a href="https://travis-ci.org/postmanlabs/newman-docker" target="_blank"><img src="https://travis-ci.org/postmanlabs/newman-docker.svg?branch=develop" /></a> <a href="https://gitter.im/postmanlabs/newman-docker" target="_blank"> <img src="https://badges.gitter.im/Join%20Chat.svg" /></a>
+# newman-docker <a href="https://travis-ci.org/postmanlabs/newman-docker" target="_blank"><img src="https://travis-ci.org/postmanlabs/newman-docker.svg?branch=develop" /></a>
 
 This repository contains docker images for Newman.
 
@@ -94,7 +94,7 @@ To know more about mounting volumes, visit
 Run a local collection, pass an environment to it, and save the HTML report on the host.
 
 ```terminal
-docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
+docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 \
     --collection="HTTPBinNewmanTest.json.postman_collection" \
     --environment="HTTPBinNewmanTestEnv.json.postman_environment" \
     --html="newman-results.html"
@@ -103,7 +103,7 @@ docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
 <br />Run a remote collection, pass it a local environment, and save JUnit XML test report on the host
 
 ```terminal
-docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
+docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 \
     --url="https://www.getpostman.com/collections/8a0c9bc08f062d12dcda" \
     --environment="HTTPBinNewmanTestEnv.json.postman_environment" \
     --testReportFile="newman-report.xml"
@@ -112,7 +112,7 @@ docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu1404 \
 <br />Import a Postman backup file, and save collections, environments, and globals
 
  ```terminal
-docker run -v ~/collections:/etc/postman -t postman/newman_ubuntu_1404 --import="Backup.postman_dump" --pretty
+docker run -v ~/collections:/etc/newman -t postman/ubuntu_1404 --import="Backup.postman_dump" --pretty
 ```
 
 <br />Use a script to run a collection and do something, for example deploy the build, if all the tests pass
@@ -139,3 +139,5 @@ trap onExit EXIT;
 
 docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/8a0c9bc08f062d12dcda" --exitCode;
 ```
+
+[![Analytics](https://ga-beacon.appspot.com/UA-43979731-9/newman-docker/readme)](https://www.getpostman.com)
