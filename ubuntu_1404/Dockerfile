@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 ENV NODE_VERSION 4.3.0
 
 # Set newman version
-ENV NEWMAN_VERSION 2.0.9
+ENV NEWMAN_VERSION 2.1.0
 
 # Install node and newman
 RUN npm install -g n;
@@ -31,8 +31,8 @@ WORKDIR /etc/newman
 # Set newman as the default container command
 # Now you can run the container via
 #
-# docker run -v /home/collections:/etc/newman -t newman_ubuntu1404 -c YourCollection.json.postman_collection \
-#                                                                  -e YourEnvironment.postman_environment \
-#                                                                  -H newman_report.html
+# docker run -v /home/collections:/etc/newman -t postman/newman_ubuntu1404 -c YourCollection.json.postman_collection \
+#                                                                          -e YourEnvironment.postman_environment \
+#                                                                          -H newman_report.html
 
 ENTRYPOINT ["newman"]
