@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 ENV NODE_VERSION 4.3.0
 
 # Set newman version
-ENV NEWMAN_VERSION 2.1.0
+ENV NEWMAN_VERSION 2.1.1
 
 # Install node and newman
 RUN npm install -g n;
