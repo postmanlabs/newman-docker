@@ -1,6 +1,6 @@
 # newman_ubuntu1404
 
-This image runs newman 2.1.0 on node 4.3.0 on Ubuntu 14.04.2
+This image runs newman 2.1.1 on node 4.3.0 on Ubuntu 14.04.2
 
 Build the image,
 
