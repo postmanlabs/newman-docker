@@ -9,12 +9,14 @@ RUN apt-get update && apt-get install -y \
 # Set node version
 ENV NODE_VERSION 4.3.0
 
-# Set newman version
-ENV NEWMAN_VERSION 2.1.1
-
-# Install node and newman
+# Install node
 RUN npm install -g n;
 RUN n ${NODE_VERSION};
+
+# Set newman version
+ENV NEWMAN_VERSION 2.1.2
+
+# Install newman
 RUN npm install -g newman@${NEWMAN_VERSION};
 
 # Set workdir to /etc/newman
