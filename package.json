@@ -3,7 +3,11 @@
   "version": "2.1.1",
   "description": "This repository contains the Dockerfiles and tests for the Newman Docker images.",
   "scripts": {
-    "test": "mocha tests/*-spec.js"
+    "docker-build": "./scripts/docker/docker-build.sh",
+    "docker-test": "./scripts/docker/docker-test.sh",
+    "test": "./scripts/test/test.sh",
+    "test-docker": "./scripts/test/test-docker.sh",
+    "test-infra": "./scripts/test/test-infra.sh"
   },
   "repository": {
     "type": "git",
