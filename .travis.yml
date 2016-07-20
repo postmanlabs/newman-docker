@@ -5,16 +5,11 @@ node_js:
 services:
   - docker
 
-before_install:
-  - docker build -t postman/newman_ubuntu1404 ./ubuntu_1404
-
 install:
   - npm install
 
 script:
   - npm test
-  - docker run -v $PWD/tests/data:/etc/newman -t postman/newman_ubuntu1404 -c HTTPBinNewmanTest.json.postman_collection -e HTTPBinNewmanTestEnv.json.postman_environment --exitCode
-  - docker run -t postman/newman_ubuntu1404 -u https://www.getpostman.com/collections/8a0c9bc08f062d12dcda --exitCode
 
 after_success:
   - echo "All done!"
