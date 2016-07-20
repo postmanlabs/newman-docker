@@ -6,8 +6,6 @@ ENV NODE_VERSION 4.3.0
 
 # Install node
 RUN apk add --update nodejs=${NODE_VERSION}-r0;
-#RUN npm install -g n;
-#RUN n ${NODE_VERSION};
 
 # Set newman version
 ENV NEWMAN_VERSION 2.1.2
