@@ -1,6 +1,6 @@
 {
   "name": "newman-docker",
-  "version": "2.1.2",
+  "version": "3.0.0",
   "description": "This repository contains the Dockerfiles and tests for the Newman Docker images.",
   "scripts": {
     "docker-build": "./scripts/docker/docker-build.sh",
