@@ -8,7 +8,7 @@ ENV NODE_VERSION 4.3.0
 RUN apk add --update nodejs=${NODE_VERSION}-r0;
 
 # Set newman version
-ENV NEWMAN_VERSION 2.1.2
+ENV NEWMAN_VERSION 3.0.0
 
 # Install newman
 RUN npm install -g newman@${NEWMAN_VERSION};
