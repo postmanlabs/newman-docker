@@ -9,6 +9,11 @@ RUN apt-get update && apt-get install -y \
 # Set node version
 ENV NODE_VERSION 4.3.0
 
+# Set locale
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+
 # Install node
 RUN npm install -g n;
 RUN n ${NODE_VERSION};
