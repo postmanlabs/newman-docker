@@ -3,11 +3,17 @@
 set -e;
 
 IMAGES_BASE_PATH="./images";
+CURRENT_BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 function build_docker_image {
     TAG=$(grep -oP "(?<=ENV\ NEWMAN_VERSION\ ).+" ${1}/Dockerfile);
     BASENAME=$(basename $1);
-    docker build -t postman/newman_${BASENAME}:${TAG} ${1};
+
+    if [ $CURRENT_BRANCH = "master" ]; then
+        docker build -t postman/newman_${BASENAME}:${TAG} -t postman/newman_${BASENAME}:latest ${1};
+    else
+        docker build -t postman/newman_${BASENAME}:${TAG} ${1};
+    fi
 }
 
 if [ -z "$1" ]; then
