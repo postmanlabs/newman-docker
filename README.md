@@ -8,7 +8,7 @@ This repository contains docker images for Newman.
 <a href="https://getpostman.com" target="_blank">Postman</a>. It allows you to effortlessly run and test a
 <a href="https://www.getpostman.com/docs/collections" target="_blank">Postman Collections<a/> directly from the
 command-line. It is built with extensibility in mind so that you can easily integrate it with your continuous
-integration servers and build systems.f
+integration servers and build systems.
 
 **New to Docker?** Docker allows you to package an application with all of its dependencies into a standardised unit for
 software development. Visit
