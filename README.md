@@ -8,7 +8,7 @@ This repository contains docker images for Newman.
 <a href="https://getpostman.com" target="_blank">Postman</a>. It allows you to effortlessly run and test a
 <a href="https://www.getpostman.com/docs/collections" target="_blank">Postman Collections<a/> directly from the
 command-line. It is built with extensibility in mind so that you can easily integrate it with your continuous
-integration servers and build systems.
+integration servers and build systems.f
 
 **New to Docker?** Docker allows you to package an application with all of its dependencies into a standardised unit for
 software development. Visit
@@ -79,7 +79,7 @@ directory of your collection files into that location and provide the file refer
 ```terminal
 # Mount host collections folder ~/collections, onto /etc/newman on the docker image, so that newman
 # has access to collections
-docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu_1404 --collection="HTTPBinNewmanTestNoEnv.json.postman_collection"
+docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 --collection="HTTPBinNewmanTestNoEnv.json.postman_collection"
 ```
 
 You are not required to mount a volume if you do not need to save newman report to the host, and your collection is
@@ -112,7 +112,7 @@ docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 \
 <br />Import a Postman backup file, and save collections, environments, and globals
 
  ```terminal
-docker run -v ~/collections:/etc/newman -t postman/ubuntu_1404 --import="Backup.postman_dump" --pretty
+docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 --import="Backup.postman_dump" --pretty
 ```
 
 <br />Use a script to run a collection and do something, for example deploy the build, if all the tests pass
