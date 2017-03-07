@@ -9,13 +9,13 @@ function test_docker_image {
     BASENAME=$(basename $1);
 
     docker run -v $PWD/test/data:/etc/newman -t postman/newman_${BASENAME}:${TAG} \
-        -c HTTPBinNewmanTest.json.postman_collection \
+        run HTTPBinNewmanTest.json.postman_collection \
         -e HTTPBinNewmanTestEnv.json.postman_environment \
-        --exitCode;
+        --suppress-exit-code;
 
     docker run -t postman/newman_${BASENAME}:${TAG} \
-        -u https://www.getpostman.com/collections/8a0c9bc08f062d12dcda \
-        --exitCode;
+        run https://www.getpostman.com/collections/8a0c9bc08f062d12dcda \
+        --suppress-exit-code;
 }
 
 if [ -z "$1" ]; then
