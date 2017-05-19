@@ -39,7 +39,7 @@ docker pull postman/newman_ubuntu1404
 Run newman commands on the image:
 
 ```terminal
-docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/df0a40ef41d570c48154"
+docker run -t postman/newman_ubuntu1404 run "https://www.getpostman.com/collections/df0a40ef41d570c48154"
 ```
 
 ### Build the docker image from this repository
@@ -66,7 +66,7 @@ docker build -t postman/newman_ubuntu1404 ubuntu1404
 Run a collection using the newman image:
 
 ```terminal
-docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/8a0c9bc08f062d12dcda"
+docker run -t postman/newman_ubuntu1404 run "https://www.getpostman.com/collections/8a0c9bc08f062d12dcda"
 ```
 
 
@@ -79,7 +79,7 @@ directory of your collection files into that location and provide the file refer
 ```terminal
 # Mount host collections folder ~/collections, onto /etc/newman on the docker image, so that newman
 # has access to collections
-docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 --collection="HTTPBinNewmanTestNoEnv.json.postman_collection"
+docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 run "HTTPBinNewmanTestNoEnv.json.postman_collection"
 ```
 
 You are not required to mount a volume if you do not need to save newman report to the host, and your collection is
@@ -95,24 +95,18 @@ Run a local collection, pass an environment to it, and save the HTML report on t
 
 ```terminal
 docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 \
-    --collection="HTTPBinNewmanTest.json.postman_collection" \
+    run "HTTPBinNewmanTest.json.postman_collection" \
     --environment="HTTPBinNewmanTestEnv.json.postman_environment" \
-    --html="newman-results.html"
+    --reporters="html,cli" --reporter-html-export="newman-results.html"
 ```
 
 <br />Run a remote collection, pass it a local environment, and save JUnit XML test report on the host
 
 ```terminal
 docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 \
-    --url="https://www.getpostman.com/collections/8a0c9bc08f062d12dcda" \
+    run "https://www.getpostman.com/collections/8a0c9bc08f062d12dcda" \
     --environment="HTTPBinNewmanTestEnv.json.postman_environment" \
-    --testReportFile="newman-report.xml"
-```
-
-<br />Import a Postman backup file, and save collections, environments, and globals
-
- ```terminal
-docker run -v ~/collections:/etc/newman -t postman/newman_ubuntu1404 --import="Backup.postman_dump" --pretty
+    --reporters="junit,cli" --reporter-junit-export="newman-report.xml"
 ```
 
 <br />Use a script to run a collection and do something, for example deploy the build, if all the tests pass
@@ -137,7 +131,7 @@ function onExit {
 # call onExit when the script exits
 trap onExit EXIT;
 
-docker run -t postman/newman_ubuntu1404 --url="https://www.getpostman.com/collections/8a0c9bc08f062d12dcda" --exitCode;
+docker run -t postman/newman_ubuntu1404 run "https://www.getpostman.com/collections/8a0c9bc08f062d12dcda" --suppress-exit-code;
 ```
 
 [![Analytics](https://ga-beacon.appspot.com/UA-43979731-9/newman-docker/readme)](https://www.getpostman.com)
