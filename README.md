@@ -58,7 +58,7 @@ git clone https://github.com/postmanlabs/newman-docker.git
 Build the image:
 
 ```terminal
-docker build -t postman/newman_ubuntu1404 docker-newman/newman_ubuntu1404
+docker build -t postman/newman_ubuntu1404 ubuntu1404
 ```
 
 **Step 3:**
