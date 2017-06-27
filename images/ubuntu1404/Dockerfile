@@ -19,7 +19,7 @@ RUN npm install -g n;
 RUN n ${NODE_VERSION};
 
 # Set newman version
-ENV NEWMAN_VERSION 3.7.1
+ENV NEWMAN_VERSION 3.7.2
 
 # Install newman
 RUN npm install -g newman@${NEWMAN_VERSION};
