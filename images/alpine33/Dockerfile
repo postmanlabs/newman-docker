@@ -13,7 +13,7 @@ ENV LANGUAGE en_US.UTF-8
 RUN apk add --update nodejs=${NODE_VERSION}-r0;
 
 # Set newman version
-ENV NEWMAN_VERSION 3.7.3
+ENV NEWMAN_VERSION 3.7.4
 
 # Install newman
 RUN npm install -g newman@${NEWMAN_VERSION};
