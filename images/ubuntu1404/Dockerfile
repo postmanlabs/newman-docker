@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     npm;
 
 # Set node version
-ENV NODE_VERSION 4.3.0
+ENV NODE_VERSION 4.3.2
 
 # Set locale
 ENV LC_ALL en_US.UTF-8
@@ -19,7 +19,7 @@ RUN npm install -g n;
 RUN n ${NODE_VERSION};
 
 # Set newman version
-ENV NEWMAN_VERSION 3.7.4
+ENV NEWMAN_VERSION 3.7.5
 
 # Install newman
 RUN npm install -g newman@${NEWMAN_VERSION};
