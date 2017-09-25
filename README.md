@@ -39,7 +39,7 @@ docker pull postman/newman_ubuntu1404
 Run newman commands on the image:
 
 ```terminal
-docker run -t postman/newman_ubuntu1404 run "https://www.getpostman.com/collections/df0a40ef41d570c48154"
+docker run -t postman/newman_ubuntu1404 run "https://www.getpostman.com/collections/8a0c9bc08f062d12dcda"
 ```
 
 ### Build the docker image from this repository
