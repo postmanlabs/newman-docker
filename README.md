@@ -1,3 +1,8 @@
+# Deprecation notice:
+## This repository is now deprecated and will soon be archived.
+## The Newman Docker images are now a part of https://github.com/postmanlabs/newman. For more context, see https://github.com/postmanlabs/newman/pull/1397.
+## All issues, questions, feature requests or discussions about the Newman Docker image(s) should be shifted to https://github.com/postmanlabs/newman/issues
+
 <img src="https://s3.amazonaws.com/web-artefacts/cartoon-whale-8.gif+(400%C3%97225).png">
 
 # newman-docker <a href="https://travis-ci.org/postmanlabs/newman-docker" target="_blank"><img src="https://travis-ci.org/postmanlabs/newman-docker.svg?branch=develop" /></a>
